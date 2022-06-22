@@ -1,22 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_print_ptr.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
+/*   By: imorina <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 17:00:24 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/30 18:57:09 by ludovictrom      ###   ########.fr       */
+/*   Created: 2021/12/06 14:30:53 by imorina           #+#    #+#             */
+/*   Updated: 2021/12/21 17:13:15 by imorina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
-#include "minitalk.h"
-#include "libft_ltromber/libft.h"
+#include "ft_printf.h"
 
-int main (void)
+void	ft_print_ptr(unsigned long int ptr, int *count)
 {
-	ft_strlen("COUCOU");
+	ft_print_str("0x", count);
+	ft_print_hex_long(ptr, count, 0);
 }

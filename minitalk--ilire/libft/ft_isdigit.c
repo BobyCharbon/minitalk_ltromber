@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   isdigit.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
+/*   By: imorina <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 17:00:24 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/30 18:57:09 by ludovictrom      ###   ########.fr       */
+/*   Created: 2021/10/25 19:43:45 by imorina           #+#    #+#             */
+/*   Updated: 2021/11/07 20:19:49 by imorina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
-#include "minitalk.h"
-#include "libft_ltromber/libft.h"
+#include "libft.h"
 
-int main (void)
+int	ft_isdigit(int c)
 {
-	ft_strlen("COUCOU");
+	if (c >= 48 && c <= 57)
+		return (1);
+	return (0);
 }

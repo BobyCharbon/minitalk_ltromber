@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   bzero.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
+/*   By: imorina <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 17:00:24 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/30 18:57:09 by ludovictrom      ###   ########.fr       */
+/*   Created: 2021/11/01 20:44:51 by imorina           #+#    #+#             */
+/*   Updated: 2021/11/29 14:28:26 by imorina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
-#include "minitalk.h"
-#include "libft_ltromber/libft.h"
+#include "libft.h"
 
-int main (void)
+void	ft_bzero(void *s, size_t n)
 {
-	ft_strlen("COUCOU");
+	size_t	i;
+
+	i = 0;
+	while (i < n)
+	{
+		((char *)s)[i] = 0;
+		i++;
+	}
 }

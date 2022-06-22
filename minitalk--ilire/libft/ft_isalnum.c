@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   isalnum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
+/*   By: imorina <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 17:00:24 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/30 18:57:09 by ludovictrom      ###   ########.fr       */
+/*   Created: 2021/10/25 19:44:21 by imorina           #+#    #+#             */
+/*   Updated: 2021/11/07 20:27:43 by imorina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
-#include "minitalk.h"
-#include "libft_ltromber/libft.h"
+#include "libft.h"
 
-int main (void)
+int	ft_isalnum(int c)
 {
-	ft_strlen("COUCOU");
+	if ((c >= 48 && c <= 57) || (c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }

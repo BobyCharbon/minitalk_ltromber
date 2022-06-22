@@ -1,22 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
+/*   By: imorina <marvin@42lausanne.ch>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 17:00:24 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/30 18:57:09 by ludovictrom      ###   ########.fr       */
+/*   Created: 2021/11/27 17:47:24 by imorina           #+#    #+#             */
+/*   Updated: 2021/11/29 14:54:01 by imorina          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
-#include "minitalk.h"
-#include "libft_ltromber/libft.h"
+#include "libft.h"
 
-int main (void)
+t_list	*ft_lstlast(t_list *lst)
 {
-	ft_strlen("COUCOU");
+	if (!lst)
+		return (NULL);
+	while (lst->next)
+	{
+		lst = lst->next;
+	}
+	return (lst);
 }
