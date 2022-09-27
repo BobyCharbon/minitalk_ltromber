@@ -1,83 +1,49 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/05/30 17:46:30 by ludovictrom       #+#    #+#              #
-#    Updated: 2022/05/30 19:54:50 by ludovictrom      ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-SRCS = test.c
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+RM = rm -f
+DOSSRC = ./src/
+DOSSRCB = ./src_bonus/
 
-#HEADERS += minitalk.h
-#NAME = libft.a
+NAME1 = server
+NAME2 = client
 
-ROOT_DIR		?= $(shell pwd)
-LIBFT_DIR		= ${ROOT_DIR}/libft_ltromber/
-#LIBFT_DIR = /libft_ltromber/libft
-LIBFT = ./libft_ltromber/libft.a
-#LIBS	 = -L./libft_ltromber -lft
-#OBJS = ${SRCS:.c=.o}
+SRC = ft_mt_utils.c
 
-SERVER = server
-CLIENT = client
+NAME1B = server_bonus
+NAME2B = client_bonus
 
-OBJ_SERVER = 
-OBS_CLIENT = 
+SRCB = ft_mt_utils_bonus.c
 
-CFLAGS += -Wall
-FLAGS += -Werror
-CFLAGS += -Wextra
+all : $(NAME1) $(NAME2)
+bonus : $(NAME1B) $(NAME2B)
 
-CC = clang
+$(NAME1) : $(DOSSRC)$(NAME1:%=%.o) $(DOSSRC)$(SRC:%.c=%.o)
+	$(CC) $(CFLAGS) $^ -o $@
 
-all: $(SRCS) $(LIBFT) $(SERVER) $(CLIENT)
+$(NAME2) : $(DOSSRC)$(NAME2:%=%.o) $(DOSSRC)$(SRC:%.c=%.o)
+	$(CC) $(CFLAGS) $^ -o $@
 
-$(SERVER) : server.o minitalk.h
-	@$(CC) server.o  $(LIBFT) -o $@
-	@printf "\e[38;5;226m./$@ successfully build🥑\e[0m\n"
-
-$(CLIENT) : client.o minitalk.h
-	@$(CC) client.o $(LIBFT) -o $@
-	@printf "\e[38;5;46m./$@ successfully build🥝\e[0m\n"
-
-$(NAME): $(OBJS)
-	ar -rcs $(NAME) $(OBJS)
-	@echo "OK"
-
-$(OBJS): %.o: %.c $(HEADERS)
+%.o : $(DOSSRC)%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-$(LIBFT):
-	@make -C libft_ltromber/
+$(NAME1B) : $(DOSSRCB)$(NAME1B:%=%.o) $(DOSSRCB)$(SRCB:%.c=%.o)
+	$(CC) $(CFLAGS) $^ -o $@
 
-re:	fclean
-	$(MAKE)
+$(NAME2B) : $(DOSSRCB)$(NAME2B:%=%.o) $(DOSSRCB)$(SRCB:%.c=%.o)
+	$(CC) $(CFLAGS) $^ -o $@
 
-clean:
-	$(RM) $(OBJS) $(LIBFT) $(BONUS_OBJS)
-	@make clean -C libft_ltromber
+%.o : $(DOSSRCB)%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
-fclean: clean
-	@rm -f $(SERVER) $(CLIENT)
-	@make fclean -C libft_ltromber
-	$(RM) $(NAME)
+clean :
+	rm -f $(DOSSRC)*.o
+	rm -f $(DOSSRCB)*.o
 
-out:
-	$(CC) -g $(CFLAGS) $(SRCS) $(LIBFT_DIR) && ./a.out
+fclean : clean
+	rm -f server client
+	rm -f server_bonus client_bonus
 
-ac:
-	read ARGV1
-	read ARGV2
-	$(CC) -g $(FLAFS) $(SRCS) && ./a.out "$(ARGV1)" "$(ARGV2)" 
-#read ARGV3
-#"$(ARGV3)"
+re : fclean all
 
-cleanout:
-	$(RM) a.out
-
-.PHONY: all clean fclean re
-#.SILENT:
+.PHONY : all bonus clean fclean re

@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_minitalk.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ludovictrombert <ludovictrombert@studen    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/30 17:00:24 by ludovictrom       #+#    #+#             */
-/*   Updated: 2022/05/30 18:57:09 by ludovictrom      ###   ########.fr       */
+/*   Created: 2022/09/27 16:43:59 by ludovictrom       #+#    #+#             */
+/*   Updated: 2022/09/27 16:44:02 by ludovictrom      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <sys/types.h>
-#include <signal.h>
-#include "minitalk.h"
-#include "libft_ltromber/libft.h"
+#ifndef FT_MINITALK_H
+# define FT_MINITALK_H
 
-int main (void)
-{
-	ft_strlen("COUCOU");
-}
+# include <stdio.h>
+# include <unistd.h>
+# include <signal.h>
+# include <sys/types.h>
+
+void	putstr_fd(char *str, int fd);
+void	putnbr_fd(int nb, int fd);
+int		mt_atoi(const char *nptr);
+int		pid_check(char *str);
+
+#endif
